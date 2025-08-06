@@ -25,6 +25,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+import { useEffect, useState } from "react";
+
 const fadeInUp = {
 	initial: { opacity: 0, y: 60 },
 	animate: { opacity: 1, y: 0 },
@@ -45,27 +47,35 @@ const staggerContainer = {
 	},
 };
 
-const FloatingParticle = ({ delay = 0 }: { delay?: number }) => (
-	<motion.div
-		initial={{ opacity: 0, y: 100 }}
-		animate={{
-			opacity: [0, 1, 0],
-			y: [-100, -200],
-			x: [0, Math.random() * 100 - 50],
-		}}
-		transition={{
-			duration: 8,
-			delay,
-			repeat: Infinity,
-			repeatType: "loop",
-		}}
-		className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-sm"
-		style={{
-			left: `${Math.random() * 100}%`,
-			bottom: 0,
-		}}
-	/>
-);
+const FloatingParticle = ({ delay = 0 }: { delay?: number }) => {
+	const [left, setLeft] = useState<number | null>(null);
+
+	useEffect(() => {
+		// Generate a random left position (0% to 100%) only on client
+		const randomLeft = Math.random() * 100;
+		setLeft(randomLeft);
+	}, []);
+
+	if (left === null) return null; // Avoid hydration mismatch
+
+	return (
+		<motion.div
+			className="absolute top-0 w-[1px] h-[1px] bg-white rounded-full opacity-70"
+			style={{
+				left: `${left}%`,
+			}}
+			initial={{ y: "-5vh", opacity: 0 }}
+			animate={{ y: "105vh", opacity: 1 }}
+			transition={{
+				duration: 5,
+				delay,
+				repeat: Infinity,
+				repeatType: "loop",
+				ease: "linear",
+			}}
+		/>
+	);
+};
 
 export default function Portfolio() {
 	const { scrollY } = useScroll();
