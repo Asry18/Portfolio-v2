@@ -24,6 +24,7 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { TypeAnimation } from "react-type-animation";
 
 import { useEffect, useState } from "react";
 
@@ -197,114 +198,79 @@ export default function Portfolio() {
 			</nav>
 
 			{/* Hero Section */}
-			<section className="min-h-screen flex items-center justify-center px-6 relative pt-24">
-				<div className="text-center max-w-4xl mx-auto">
-					<motion.div
-						initial={{ opacity: 0, scale: 0.5 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ duration: 0.8, ease: "easeOut" }}
-						className="mb-8 relative"
-					>
-						<div className="w-48 h-48 mx-auto relative">
-							<div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse blur-sm" />
+			<section className="min-h-screen flex items-center justify-center px-6 pt-24">
+				<motion.div
+					initial={{ opacity: 0, scale: 0.9 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.6 }}
+					className="flex flex-col md:flex-row items-center md:items-start gap-10 max-w-6xl w-full"
+				>
+					{/* Left: Profile Image */}
+					<div className="flex-shrink-0 relative">
+						<div className="w-48 h-48 relative">
+							<div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-sm animate-pulse" />
 							<Image
 								src="/profile.png"
 								alt="Profile"
-								width={200}
-								height={200}
-								className="relative z-10 rounded-full mx-auto border-4 border-white/20 shadow-2xl"
+								width={192}
+								height={192}
+								className="relative z-10 rounded-full border-4 border-white/20 shadow-xl"
 							/>
 						</div>
-					</motion.div>
+					</div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.2, duration: 0.8 }}
-						className="mb-6"
-					>
-						<h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
+					{/* Right: Details */}
+					<div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
+						{/* Name */}
+						<h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-300 bg-clip-text text-transparent animate-[gradient-move_4s_linear_infinite] bg-[length:200%_200%] mb-2">
 							Mohamed Asry
 						</h1>
-						<div className="flex flex-col items-center gap-4 text-purple-300 mb-6">
+
+						{/* Subtitle */}
+						<span className="text-lg md:text-2xl text-purple-200 block mb-4">
+							<TypeAnimation
+								sequence={[
+									"Full Stack Engineer 🚀",
+									2000,
+									"Creative Problem Solver 🎨",
+									2000,
+									"Tech Visionary 🔮",
+									2000,
+								]}
+								speed={50}
+								repeat={Infinity}
+							/>
+						</span>
+
+						{/* Location & Availability */}
+						<div className="flex flex-col md:flex-row md:items-center gap-4 text-purple-300 mb-6">
 							<div className="flex items-center gap-2">
-								<MapPin className="h-5 w-5" />
+								<MapPin className="h-4 w-4" />
 								<span>Balapitiya, Sri Lanka</span>
 							</div>
-
 							<div className="flex items-center gap-1">
 								<div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
 								<span>Available for work</span>
 							</div>
 						</div>
-					</motion.div>
 
-					<motion.p
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.4, duration: 0.8 }}
-						className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed"
-					>
-						Senior Full Stack Engineer crafting next-generation web experiences with
-						cutting-edge technologies and innovative design thinking
-					</motion.p>
-
-					{/* Achievement Stats */}
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.5, duration: 0.8 }}
-						className="grid grid-cols-3 gap-8 mb-12 max-w-md mx-auto"
-					>
-						{achievements.map((achievement, index) => (
-							<div key={index} className="text-center">
-								<achievement.icon className="h-6 w-6 text-purple-400 mx-auto mb-2" />
-								<div className="text-white/60 text-sm">{achievement.title}</div>
-								<div className="text-purple-300 text-xs">{achievement.year}</div>
-							</div>
-						))}
-					</motion.div>
-
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.6, duration: 0.8 }}
-						className="flex flex-wrap justify-center gap-4 mb-12"
-					>
-						<Button
-							size="lg"
-							className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-2xl transform hover:scale-105 transition-all duration-300"
-						>
-							<Download className="mr-2 h-5 w-5" />
-							Download CV
-						</Button>
-						<Button
-							variant="outline"
-							size="lg"
-							className="bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-						>
-							<Github className="mr-2 h-5 w-5" />
-							GitHub
-						</Button>
-						<Button
-							variant="outline"
-							size="lg"
-							className="bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-						>
-							<Linkedin className="mr-2 h-5 w-5" />
-							LinkedIn
-						</Button>
-					</motion.div>
-
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.8, duration: 0.8 }}
-						className="animate-bounce"
-					>
-						<ArrowDown className="h-8 w-8 text-white/40 mx-auto" />
-					</motion.div>
-				</div>
+						{/* Buttons */}
+						<div className="flex flex-wrap gap-3">
+							<Button
+								size="lg"
+								className="bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+							>
+								Download CV
+							</Button>
+							<Button variant="outline" size="lg" className="text-white border-white/20">
+								GitHub
+							</Button>
+							<Button variant="outline" size="lg" className="text-white border-white/20">
+								LinkedIn
+							</Button>
+						</div>
+					</div>
+				</motion.div>
 			</section>
 
 			{/* About Section */}
