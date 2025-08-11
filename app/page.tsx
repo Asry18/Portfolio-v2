@@ -174,7 +174,7 @@ export default function Portfolio() {
 							animate={{ opacity: 1, x: 0 }}
 							className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
 						>
-							John Doe
+							Mohamed Asry
 						</motion.div>
 						<motion.div
 							initial={{ opacity: 0, x: 20 }}
@@ -208,7 +208,7 @@ export default function Portfolio() {
 						<div className="w-48 h-48 mx-auto relative">
 							<div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse blur-sm" />
 							<Image
-								src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+								src="/profile.png"
 								alt="Profile"
 								width={200}
 								height={200}
