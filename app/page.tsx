@@ -24,6 +24,7 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { TypeAnimation } from "react-type-animation";
 
 import { useEffect, useState } from "react";
 
@@ -147,7 +148,7 @@ export default function Portfolio() {
 	];
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 relative overflow-hidden">
+		<div className="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 relative overflow-hidden">
 			{/* Floating Particles */}
 			<div className="fixed inset-0 pointer-events-none">
 				{Array.from({ length: 20 }).map((_, i) => (
@@ -167,139 +168,180 @@ export default function Portfolio() {
 
 			{/* Navigation */}
 			<nav className="fixed top-0 w-full bg-black/10 backdrop-blur-2xl z-50 border-b border-white/5">
-				<div className="container mx-auto px-6 py-4">
-					<div className="flex justify-between items-center">
-						<motion.div
-							initial={{ opacity: 0, x: -20 }}
-							animate={{ opacity: 1, x: 0 }}
-							className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
-						>
-							John Doe
-						</motion.div>
-						<motion.div
-							initial={{ opacity: 0, x: 20 }}
-							animate={{ opacity: 1, x: 0 }}
-							className="hidden md:flex space-x-8"
-						>
-							{["About", "Projects", "Skills", "Contact"].map((item) => (
-								<Link
-									key={item}
-									href={`#${item.toLowerCase()}`}
-									className="text-white/70 hover:text-white transition-all duration-300 relative group"
-								>
-									{item}
-									<span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 group-hover:w-full" />
-								</Link>
-							))}
-						</motion.div>
-					</div>
+				<div className="container mx-auto px-6 py-4 flex justify-between items-center">
+					<motion.div
+						initial={{ opacity: 0, x: -20 }}
+						animate={{ opacity: 1, x: 0 }}
+						className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
+					>
+						Mohamed Asry
+					</motion.div>
+					<motion.div
+						initial={{ opacity: 0, x: 20 }}
+						animate={{ opacity: 1, x: 0 }}
+						className="hidden md:flex space-x-8"
+					>
+						{["About", "Projects", "Skills", "Contact"].map((item) => (
+							<a
+								key={item}
+								href={`#${item.toLowerCase()}`}
+								className="text-white/70 hover:text-white transition-all duration-300 relative group"
+							>
+								{item}
+								<span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 group-hover:w-full" />
+							</a>
+						))}
+					</motion.div>
 				</div>
 			</nav>
 
 			{/* Hero Section */}
-			<section className="min-h-screen flex items-center justify-center px-6 relative">
-				<div className="text-center max-w-4xl mx-auto">
+			<section className="min-h-screen flex items-center justify-center px-6 pt-20">
+				<div className="container mx-auto max-w-7xl">
 					<motion.div
-						initial={{ opacity: 0, scale: 0.5 }}
-						animate={{ opacity: 1, scale: 1 }}
+						initial={{ opacity: 0, y: 50 }}
+						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, ease: "easeOut" }}
-						className="mb-8 relative"
+						className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center"
 					>
-						<div className="w-48 h-48 mx-auto relative">
-							<div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse blur-sm" />
-							<Image
-								src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
-								alt="Profile"
-								width={200}
-								height={200}
-								className="relative z-10 rounded-full mx-auto border-4 border-white/20 shadow-2xl"
-							/>
-						</div>
-					</motion.div>
+						{/* Left Column - Profile Image */}
+						<motion.div
+							initial={{ opacity: 0, scale: 0.8 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 0.6, delay: 0.2 }}
+							className="flex justify-center lg:justify-end order-2 lg:order-1"
+						>
+							<div className="relative">
+								{/* Glow Effect */}
+								<div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500 rounded-full opacity-20 blur-2xl animate-pulse"></div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.2, duration: 0.8 }}
-						className="mb-6"
-					>
-						<h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
-							John Doe
-						</h1>
-						<div className="flex items-center justify-center gap-4 text-purple-300 mb-6">
-							<MapPin className="h-5 w-5" />
-							<span>San Francisco, CA</span>
-							<div className="flex items-center gap-1">
-								<div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-								<span>Available for work</span>
+								{/* Rotating Border */}
+								<div className="relative w-80 h-80 lg:w-96 lg:h-96">
+									<div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 rounded-full animate-spin-slow p-1">
+										<div className="w-full h-full bg-slate-950 rounded-full p-4">
+											{/* Profile Image Placeholder */}
+											<div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center shadow-2xl">
+												<Image
+													src="/profile.png"
+													alt="Profile"
+													width={800} // set width according to your needs
+													height={800} // set height accordingly
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</motion.div>
+						</motion.div>
 
-					<motion.p
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.4, duration: 0.8 }}
-						className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed"
-					>
-						Senior Full Stack Engineer crafting next-generation web experiences with
-						cutting-edge technologies and innovative design thinking
-					</motion.p>
+						{/* Right Column - Content */}
+						<motion.div
+							initial={{ opacity: 0, x: 50 }}
+							animate={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.8, delay: 0.3 }}
+							className="text-center lg:text-left order-1 lg:order-2 space-y-8"
+						>
+							{/* Main Heading */}
+							<div className="space-y-4">
+								<motion.h1
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.6, delay: 0.4 }}
+									className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight"
+								>
+									<span className="bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+										Mohamed
+									</span>
+									<br />
+									<span className="bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-400 bg-clip-text text-transparent animate-pulse">
+										Asry
+									</span>
+								</motion.h1>
 
-					{/* Achievement Stats */}
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.5, duration: 0.8 }}
-						className="grid grid-cols-3 gap-8 mb-12 max-w-md mx-auto"
-					>
-						{achievements.map((achievement, index) => (
-							<div key={index} className="text-center">
-								<achievement.icon className="h-6 w-6 text-purple-400 mx-auto mb-2" />
-								<div className="text-white/60 text-sm">{achievement.title}</div>
-								<div className="text-purple-300 text-xs">{achievement.year}</div>
+								{/* Animated Role */}
+								<motion.div
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.6, delay: 0.6 }}
+									className="text-xl md:text-2xl lg:text-3xl text-purple-200 font-medium min-h-[2.5rem] flex items-center justify-center lg:justify-start"
+								>
+									<TypeAnimation
+										sequence={[
+											"Full Stack Engineer 🚀",
+											2000,
+											"Creative Problem Solver 🎨",
+											2000,
+											"Tech Visionary 🔮",
+											2000,
+										]}
+									/>
+								</motion.div>
 							</div>
-						))}
-					</motion.div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.6, duration: 0.8 }}
-						className="flex flex-wrap justify-center gap-4 mb-12"
-					>
-						<Button
-							size="lg"
-							className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-2xl transform hover:scale-105 transition-all duration-300"
-						>
-							<Download className="mr-2 h-5 w-5" />
-							Download CV
-						</Button>
-						<Button
-							variant="outline"
-							size="lg"
-							className="bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-						>
-							<Github className="mr-2 h-5 w-5" />
-							GitHub
-						</Button>
-						<Button
-							variant="outline"
-							size="lg"
-							className="bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-						>
-							<Linkedin className="mr-2 h-5 w-5" />
-							LinkedIn
-						</Button>
-					</motion.div>
+							{/* Location and Status */}
+							<motion.div
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.6, delay: 0.8 }}
+								className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-purple-300"
+							>
+								<div className="flex items-center gap-2">
+									<MapPin className="h-5 w-5 text-purple-400" />
+									<span>Balapitiya, Sri Lanka</span>
+								</div>
+								<div className="flex items-center gap-2">
+									<div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+									<span className="text-green-300">Available for work</span>
+								</div>
+							</motion.div>
 
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.8, duration: 0.8 }}
-						className="animate-bounce"
-					>
-						<ArrowDown className="h-8 w-8 text-white/40 mx-auto" />
+							{/* CTA Buttons */}
+							<motion.div
+								initial={{ opacity: 0, y: 30 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.6, delay: 1 }}
+								className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+							>
+								<Button
+									size="lg"
+									className="shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
+								>
+									<Download className="h-5 w-5" />
+									Download CV
+								</Button>
+								<Button variant="outline" size="lg" className="hover:bg-purple-500/10">
+									<Github className="h-5 w-5" />
+									GitHub
+								</Button>
+								<Button variant="outline" size="lg" className="hover:bg-blue-500/10">
+									<Linkedin className="h-5 w-5" />
+									LinkedIn
+								</Button>
+								<Button variant="outline" size="lg" className="hover:bg-pink-500/10">
+									<Mail className="h-5 w-5" />
+									Contact
+								</Button>
+							</motion.div>
+
+							{/* Scroll Indicator */}
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ duration: 0.6, delay: 1.5 }}
+								className="hidden lg:flex justify-start pt-8"
+							>
+								<div className="flex flex-col items-center gap-2 text-purple-400">
+									<span className="text-sm">Scroll to explore</span>
+									<motion.div
+										animate={{ y: [0, 8, 0] }}
+										transition={{ duration: 2, repeat: Infinity }}
+										className="w-6 h-10 border-2 border-purple-400/50 rounded-full flex justify-center"
+									>
+										<div className="w-1 h-3 bg-purple-400 rounded-full mt-2"></div>
+									</motion.div>
+								</div>
+							</motion.div>
+						</motion.div>
 					</motion.div>
 				</div>
 			</section>
