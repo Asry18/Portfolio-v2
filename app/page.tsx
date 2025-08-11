@@ -197,7 +197,7 @@ export default function Portfolio() {
 			</nav>
 
 			{/* Hero Section */}
-			<section className="min-h-screen flex items-center justify-center px-6 relative">
+			<section className="min-h-screen flex items-center justify-center px-6 relative pt-24">
 				<div className="text-center max-w-4xl mx-auto">
 					<motion.div
 						initial={{ opacity: 0, scale: 0.5 }}
@@ -224,11 +224,14 @@ export default function Portfolio() {
 						className="mb-6"
 					>
 						<h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
-							John Doe
+							Mohamed Asry
 						</h1>
-						<div className="flex items-center justify-center gap-4 text-purple-300 mb-6">
-							<MapPin className="h-5 w-5" />
-							<span>San Francisco, CA</span>
+						<div className="flex flex-col items-center gap-4 text-purple-300 mb-6">
+							<div className="flex items-center gap-2">
+								<MapPin className="h-5 w-5" />
+								<span>Balapitiya, Sri Lanka</span>
+							</div>
+
 							<div className="flex items-center gap-1">
 								<div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
 								<span>Available for work</span>
