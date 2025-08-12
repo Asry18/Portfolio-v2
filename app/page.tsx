@@ -85,41 +85,41 @@ export default function Portfolio() {
 
 	const projects = [
 		{
-			title: "E-commerce Platform",
+			title: " Garage24",
 			description:
-				"A sophisticated full-stack e-commerce solution featuring AI-powered recommendations, real-time inventory management, and advanced analytics dashboard.",
+				" The responsive garage management system that lets customers track vehicle status, view invoices, and make payments, while staff manage appointments, generate reports, and communicate with customers in real time.",
 			image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-			technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "AI/ML"],
+			technologies: ["React", "Node.js", "Express.js", "MongoDB", "MUI"],
 			github: "#",
 			live: "#",
 			featured: true,
 		},
 		{
-			title: "Task Management Suite",
+			title: "UniConnect",
 			description:
-				"Enterprise-grade project management platform with real-time collaboration, advanced reporting, and seamless integrations.",
+				"A centralized web platform to streamline communication between students, lecturers, and administrators. Include appointment scheduling with lecturers, ticket submission for administrative issues, and announcement publishing.",
 			image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg",
-			technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Docker"],
+			technologies: ["Next.js (Frontend & Backend)", "Tailwind CSS", "MUI", "MongoDB"],
 			github: "#",
 			live: "#",
 			featured: true,
 		},
 		{
-			title: "Weather Intelligence Hub",
+			title: "Spirit11 Fantasy Cricket League",
 			description:
-				"Advanced weather analytics platform with ML-powered forecasting, interactive maps, and climate data visualization.",
+				"A cricket league platform where users manage teams.",
 			image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
-			technologies: ["Vue.js", "D3.js", "Python", "TensorFlow", "AWS"],
+			technologies: ["MongoDB", "Express.js", "React", "Node.js", "shadcn UI"],
 			github: "#",
 			live: "#",
 			featured: false,
 		},
 		{
-			title: "Financial Dashboard",
+			title: "URL Shortener",
 			description:
-				"Real-time financial analytics platform with portfolio tracking, risk assessment, and automated reporting capabilities.",
+				"Created a URL shortener using Flask and MySQL with unique hashing and link usage tracking.",
 			image: "https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg",
-			technologies: ["React", "TypeScript", "GraphQL", "PostgreSQL"],
+			technologies: ["Flask", "MySQL", "REST APIs"],
 			github: "#",
 			live: "#",
 			featured: false,
@@ -361,10 +361,12 @@ export default function Portfolio() {
 						</h2>
 						<div className="max-w-4xl mx-auto">
 							<p className="text-xl text-white/80 leading-relaxed mb-8">
-								I'm a passionate full-stack engineer with over 5 years of experience
-								building scalable web applications and leading development teams. I
-								specialize in modern JavaScript frameworks, cloud architecture, and
-								creating exceptional user experiences that drive business growth.
+								A passionate problem solver and tech enthusiast with foundational
+								programming knowledge in C, TypeScript, JavaScript, Java, and Python. Have
+								a basic understanding of solid principles and am actively improving my
+								time management and attention to detail. I am seeking a Software
+								Engineering Internship to further develop my technical abilities and
+								contribute to impactful projects.
 							</p>
 							<div className="grid md:grid-cols-3 gap-8">
 								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
