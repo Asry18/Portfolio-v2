@@ -646,14 +646,14 @@ export default function Portfolio() {
 				<div className="container mx-auto text-center">
 					<div className="mb-6">
 						<div className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-2">
-							John Doe
+							Mohamed Asry
 						</div>
 						<div className="text-white/60">
 							Crafting digital experiences • Building the future
 						</div>
 					</div>
 					<div className="text-white/40 text-sm">
-						© 2024 John Doe. Designed & built with passion using Next.js, Tailwind CSS,
+						© 2025 Mohamed Asry. Designed & built with passion using Next.js, Tailwind CSS,
 						and Framer Motion.
 					</div>
 				</div>
