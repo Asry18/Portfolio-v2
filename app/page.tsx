@@ -301,13 +301,15 @@ export default function Portfolio() {
 								transition={{ duration: 0.6, delay: 1 }}
 								className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
 							>
-								<Button
-									size="lg"
-									className="shadow-2xl hover:shadow-purple-500/25 transition-all duration-300"
-								>
-									<Download className="h-5 w-5" />
-									Download CV
-								</Button>
+								<a href="/224015E_Asry.pdf" download>
+									<Button
+										size="lg"
+										className="shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 flex items-center gap-2"
+									>
+										<Download className="h-5 w-5" />
+										Download CV
+									</Button>
+								</a>
 								<Button variant="outline" size="lg" className="hover:bg-purple-500/10">
 									<Github className="h-5 w-5" />
 									GitHub
