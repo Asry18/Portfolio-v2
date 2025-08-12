@@ -106,8 +106,7 @@ export default function Portfolio() {
 		},
 		{
 			title: "Spirit11 Fantasy Cricket League",
-			description:
-				"A cricket league platform where users manage teams.",
+			description: "A cricket league platform where users manage teams.",
 			image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
 			technologies: ["MongoDB", "Express.js", "React", "Node.js", "shadcn UI"],
 			github: "#",
@@ -371,20 +370,22 @@ export default function Portfolio() {
 							<div className="grid md:grid-cols-3 gap-8">
 								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
 									<CardContent className="p-6 text-center">
-										<div className="text-3xl font-bold text-purple-400 mb-2">50+</div>
-										<div className="text-white/70">Projects Completed</div>
+										<div className="text-3xl font-bold text-purple-400 mb-2">19+</div>
+										<div className="text-white/70">Certifications</div>
 									</CardContent>
 								</Card>
+
 								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
 									<CardContent className="p-6 text-center">
-										<div className="text-3xl font-bold text-pink-400 mb-2">15+</div>
-										<div className="text-white/70">Happy Clients</div>
+										<div className="text-3xl font-bold text-pink-400 mb-2">4/4</div>
+										<div className="text-white/70">Dean's List Awards</div>
 									</CardContent>
 								</Card>
+
 								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
 									<CardContent className="p-6 text-center">
-										<div className="text-3xl font-bold text-blue-400 mb-2">100K+</div>
-										<div className="text-white/70">Lines of Code</div>
+										<div className="text-3xl font-bold text-blue-400 mb-2">3.9</div>
+										<div className="text-white/70">Current GPA</div>
 									</CardContent>
 								</Card>
 							</div>
@@ -611,7 +612,7 @@ export default function Portfolio() {
 								<CardContent className="p-6 text-center">
 									<Mail className="h-8 w-8 text-purple-400 mx-auto mb-4" />
 									<div className="text-white font-semibold">Email</div>
-									<div className="text-white/70 text-sm">john@example.com</div>
+									<div className="text-white/70 text-sm">asryamaz000@gmail.com</div>
 								</CardContent>
 							</Card>
 							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
@@ -653,8 +654,8 @@ export default function Portfolio() {
 						</div>
 					</div>
 					<div className="text-white/40 text-sm">
-						© 2025 Mohamed Asry. Designed & built with passion using Next.js, Tailwind CSS,
-						and Framer Motion.
+						© 2025 Mohamed Asry. Designed & built with passion using Next.js, Tailwind
+						CSS, and Framer Motion.
 					</div>
 				</div>
 			</footer>
