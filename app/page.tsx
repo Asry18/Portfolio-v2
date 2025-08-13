@@ -154,7 +154,10 @@ export default function Portfolio() {
 	];
 
 	return (
-		<div className="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 relative overflow-hidden">
+		<div
+			className="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 relative overflow-hidden"
+			id="top"
+		>
 			{/* Floating Particles */}
 			<div className="fixed inset-0 pointer-events-none">
 				{Array.from({ length: 20 }).map((_, i) => (
