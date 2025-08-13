@@ -31,6 +31,9 @@ import AboutSection from "@/components/pages/AboutSection";
 import { useEffect, useState } from "react";
 import ProjectsSection from "@/components/pages/ProjectSection";
 import SkillsSection from "@/components/pages/SkillSection";
+import ContactSection from "@/components/pages/ContactSection";
+import Footer from "@/components/pages/FooterSection";
+import Navigation from "@/components/pages/Navigation";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 60 },
@@ -170,34 +173,7 @@ export default function Portfolio() {
 			/>
 
 			{/* Navigation */}
-			<nav className="fixed top-0 w-full bg-black/10 backdrop-blur-2xl z-50 border-b border-white/5">
-				<div className="container mx-auto px-6 py-4 flex justify-between items-center">
-					<motion.div
-						initial={{ opacity: 0, x: -20 }}
-						animate={{ opacity: 1, x: 0 }}
-						className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
-					>
-						Mohamed Asry
-					</motion.div>
-					<motion.div
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						className="hidden md:flex space-x-8"
-					>
-						{["About", "Projects", "Skills", "Contact"].map((item) => (
-							<a
-								key={item}
-								href={`#${item.toLowerCase()}`}
-								className="text-white/70 hover:text-white transition-all duration-300 relative group"
-							>
-								{item}
-								<span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 group-hover:w-full" />
-							</a>
-						))}
-					</motion.div>
-				</div>
-			</nav>
-
+			<Navigation />
 			{/* Hero Section */}
 
 			<HeroSection />
@@ -211,74 +187,10 @@ export default function Portfolio() {
 			<SkillsSection />
 
 			{/* Contact Section */}
-			<section id="contact" className="py-32 px-6 bg-black/10 backdrop-blur-3xl relative">
-				<div className="container mx-auto max-w-4xl text-center">
-					<motion.div
-						initial={{ opacity: 0, y: 60 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.8 }}
-					>
-						<h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-8">
-							Let's Work Together
-						</h2>
-						<p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
-							Ready to bring your next project to life? I'm always excited to collaborate
-							on innovative solutions and cutting-edge applications.
-						</p>
-
-						<div className="grid md:grid-cols-3 gap-6 mb-12">
-							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-								<CardContent className="p-6 text-center">
-									<Mail className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-									<div className="text-white font-semibold">Email</div>
-									<div className="text-white/70 text-sm">asryamaz000@gmail.com</div>
-								</CardContent>
-							</Card>
-							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-								<CardContent className="p-6 text-center">
-									<Github className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-									<div className="text-white font-semibold">GitHub</div>
-									<div className="text-white/70 text-sm">@johndoe</div>
-								</CardContent>
-							</Card>
-							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-								<CardContent className="p-6 text-center">
-									<Linkedin className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-									<div className="text-white font-semibold">LinkedIn</div>
-									<div className="text-white/70 text-sm">@john-doe</div>
-								</CardContent>
-							</Card>
-						</div>
-
-						<Button
-							size="lg"
-							className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-2xl text-lg px-12 py-6 transform hover:scale-105 transition-all duration-300"
-						>
-							<Mail className="mr-3 h-6 w-6" />
-							Start a Conversation
-						</Button>
-					</motion.div>
-				</div>
-			</section>
+			<ContactSection />
 
 			{/* Footer */}
-			<footer className="py-12 px-6 border-t border-white/5 bg-black/20 backdrop-blur-3xl">
-				<div className="container mx-auto text-center">
-					<div className="mb-6">
-						<div className="text-2xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-2">
-							Mohamed Asry
-						</div>
-						<div className="text-white/60">
-							Crafting digital experiences • Building the future
-						</div>
-					</div>
-					<div className="text-white/40 text-sm">
-						© 2025 Mohamed Asry. Designed & built with passion using Next.js, Tailwind
-						CSS, and Framer Motion.
-					</div>
-				</div>
-			</footer>
+			<Footer />
 		</div>
 	);
 }
