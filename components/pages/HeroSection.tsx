@@ -119,9 +119,10 @@ export default function HeroSection() {
 									Download CV
 								</Button>
 							</a>
+
 							<Button
 								size="lg"
-								className="hover:bg-purple-500"
+								className="hover:bg-purple-500 relative z-10"
 								onClick={() => window.open("https://github.com/Asry18", "_blank")}
 							>
 								<Github className="h-5 w-5" />
@@ -130,7 +131,7 @@ export default function HeroSection() {
 
 							<Button
 								size="lg"
-								className="hover:bg-purple-500"
+								className="hover:bg-purple-500 relative z-10"
 								onClick={() =>
 									window.open(
 										"https://www.linkedin.com/in/mohamed-asry-402a4b241/",
@@ -141,7 +142,8 @@ export default function HeroSection() {
 								<Linkedin className="h-5 w-5" />
 								LinkedIn
 							</Button>
-							<Button size="lg" className="hover:bg-purple-500">
+
+							<Button size="lg" className="hover:bg-purple-500 relative z-10">
 								<Mail className="h-5 w-5" />
 								Contact
 							</Button>
