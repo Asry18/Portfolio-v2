@@ -122,7 +122,7 @@ export default function HeroSection() {
 
 							<Button
 								size="lg"
-								className="hover:bg-purple-500 relative z-10"
+								className="bg-white text-black hover:bg-purple-500 hover:text-white transition-colors duration-300 relative z-10"
 								onClick={() => window.open("https://github.com/Asry18", "_blank")}
 							>
 								<Github className="h-5 w-5" />
@@ -131,7 +131,7 @@ export default function HeroSection() {
 
 							<Button
 								size="lg"
-								className="hover:bg-purple-500 relative z-10"
+								className="bg-white text-black hover:bg-purple-500 hover:text-white transition-colors duration-300 relative z-10"
 								onClick={() =>
 									window.open(
 										"https://www.linkedin.com/in/mohamed-asry-402a4b241/",
@@ -143,7 +143,10 @@ export default function HeroSection() {
 								LinkedIn
 							</Button>
 
-							<Button size="lg" className="hover:bg-purple-500 relative z-10">
+							<Button
+								size="lg"
+								className="bg-white text-black hover:bg-purple-500 hover:text-white transition-colors duration-300 relative z-10"
+							>
 								<Mail className="h-5 w-5" />
 								Contact
 							</Button>
