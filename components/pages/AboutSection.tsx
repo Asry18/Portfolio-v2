@@ -38,7 +38,7 @@ export default function AboutSection() {
 
 							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
 								<CardContent className="p-6 text-center">
-									<div className="text-3xl font-bold text-pink-400 mb-2">4/4</div>
+									<div className="text-3xl font-bold text-pink-400 mb-2">3/3</div>
 									<div className="text-white/70">Dean's List Awards</div>
 								</CardContent>
 							</Card>
