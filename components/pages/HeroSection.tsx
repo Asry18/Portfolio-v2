@@ -143,13 +143,13 @@ export default function HeroSection() {
 								LinkedIn
 							</Button>
 
-							<Button
+							{/* <Button
 								size="lg"
 								className="bg-white text-black hover:bg-purple-500 hover:text-white transition-colors duration-300 relative z-10"
 							>
 								<Mail className="h-5 w-5" />
 								Contact
-							</Button>
+							</Button> */}
 						</motion.div>
 
 						{/* Scroll Indicator */}
