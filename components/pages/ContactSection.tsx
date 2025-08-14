@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,6 +21,12 @@ const staggerContainer = {
 };
 
 export default function ContactSection() {
+	const [showForm, setShowForm] = useState(false);
+
+	const handleButtonClick = () => {
+		setShowForm(true); // reveal the contact form
+	};
+
 	return (
 		<section id="contact" className="py-32 px-6 bg-black/10 backdrop-blur-3xl relative">
 			<div className="container mx-auto max-w-4xl text-center">
@@ -81,13 +88,56 @@ export default function ContactSection() {
 						</motion.div>
 					</motion.div>
 
+					{/* Start Conversation Button */}
 					<Button
 						size="lg"
-						className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-2xl text-lg px-12 py-6 transform hover:scale-105 transition-all duration-300"
+						onClick={handleButtonClick}
+						className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-2xl text-lg px-12 py-6 transform hover:scale-105 transition-all duration-300 mb-6"
 					>
 						<Mail className="mr-3 h-6 w-6" />
 						Start a Conversation
 					</Button>
+
+					{/* Contact Form (revealed on button click) */}
+					{showForm && (
+						<motion.form
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.5 }}
+							className="mt-8 max-w-xl mx-auto bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20"
+							action={`mailto:asryamaz000@gmail.com`}
+							method="POST"
+							encType="text/plain"
+						>
+							<input
+								type="text"
+								name="name"
+								placeholder="Your Name"
+								className="w-full mb-4 px-4 py-3 rounded-lg text-black"
+								required
+							/>
+							<input
+								type="email"
+								name="email"
+								placeholder="Your Email"
+								className="w-full mb-4 px-4 py-3 rounded-lg text-black"
+								required
+							/>
+							<textarea
+								name="message"
+								placeholder="Your Message"
+								className="w-full mb-4 px-4 py-3 rounded-lg text-black"
+								rows={5}
+								required
+							/>
+							<Button
+								type="submit"
+								className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg"
+							>
+								Send Message
+							</Button>
+						</motion.form>
+					)}
 				</motion.div>
 			</div>
 		</section>
