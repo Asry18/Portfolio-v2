@@ -13,8 +13,8 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="text-white/40 text-sm">
-					© 2025 Mohamed Asry. Designed & built with passion using Next.js, Tailwind CSS,
-					and Framer Motion.
+					© 2025 Mohamed Asry. Designed & built using Next.js, Tailwind CSS, and Framer
+					Motion.
 				</div>
 			</div>
 		</footer>

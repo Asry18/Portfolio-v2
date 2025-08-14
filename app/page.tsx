@@ -34,6 +34,7 @@ import SkillsSection from "@/components/pages/SkillSection";
 import ContactSection from "@/components/pages/ContactSection";
 import Footer from "@/components/pages/FooterSection";
 import Navigation from "@/components/pages/Navigation";
+import CertificationsSection from "@/components/pages/Certifiactions";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 60 },
@@ -90,29 +91,6 @@ export default function Portfolio() {
 	const y1 = useTransform(scrollY, [0, 300], [0, -50]);
 	const y2 = useTransform(scrollY, [0, 300], [0, -100]);
 
-	
-
-	const skills = [
-		{ name: "JavaScript", level: 95, category: "Frontend" },
-		{ name: "TypeScript", level: 90, category: "Frontend" },
-		{ name: "React", level: 95, category: "Frontend" },
-		{ name: "Next.js", level: 90, category: "Frontend" },
-		{ name: "Vue.js", level: 85, category: "Frontend" },
-		{ name: "Node.js", level: 90, category: "Backend" },
-		{ name: "Python", level: 85, category: "Backend" },
-		{ name: "PostgreSQL", level: 88, category: "Database" },
-		{ name: "MongoDB", level: 85, category: "Database" },
-		{ name: "AWS", level: 80, category: "DevOps" },
-		{ name: "Docker", level: 85, category: "DevOps" },
-		{ name: "Git", level: 95, category: "Tools" },
-	];
-
-	const achievements = [
-		{ icon: Award, title: "Tech Innovation Award", year: "2024" },
-		{ icon: Star, title: "Top Contributor", year: "2023" },
-		{ icon: Calendar, title: "5+ Years Experience", year: "2019-2024" },
-	];
-
 	return (
 		<div
 			className="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 relative overflow-hidden"
@@ -149,6 +127,7 @@ export default function Portfolio() {
 			{/* Skills Section */}
 			<SkillsSection />
 
+			<CertificationsSection />
 			{/* Contact Section */}
 			<ContactSection />
 
