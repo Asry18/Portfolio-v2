@@ -14,17 +14,49 @@ const fadeInUp = {
 
 const staggerContainer = {
 	animate: {
-		transition: {
-			staggerChildren: 0.15,
-		},
+		transition: { staggerChildren: 0.15 },
 	},
 };
 
 export default function ContactSection() {
 	const [showForm, setShowForm] = useState(false);
+	const [loading, setLoading] = useState(false);
 
-	const handleButtonClick = () => {
-		setShowForm(true); // reveal the contact form
+	const handleButtonClick = () => setShowForm(true);
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		setLoading(true);
+
+		const form = e.currentTarget;
+		const formData = {
+			name: (form.elements.namedItem("name") as HTMLInputElement).value,
+			email: (form.elements.namedItem("email") as HTMLInputElement).value,
+			message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+		};
+
+		try {
+			const res = await fetch("http://localhost:5000/send-email", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(formData),
+			});
+
+			const data = await res.json().catch(() => null);
+
+			if (res.ok) {
+				alert("Email sent successfully!");
+				form.reset();
+				setShowForm(false);
+			} else {
+				alert(data?.error || "Failed to send email");
+			}
+		} catch (err) {
+			console.error(err);
+			alert("Error sending email");
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	return (
@@ -52,43 +84,36 @@ export default function ContactSection() {
 						className="grid md:grid-cols-3 gap-6 mb-12"
 					>
 						<motion.div variants={fadeInUp}>
-							<a href="mailto:asryamaz000@gmail.com">
-								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
-									<CardContent className="p-6 text-center">
-										<Mail className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-										<div className="text-white font-semibold">Email</div>
-										<div className="text-white/70 text-sm">asryamaz000@gmail.com</div>
-									</CardContent>
-								</Card>
-							</a>
+							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
+								<CardContent className="p-6 text-center">
+									<Mail className="h-8 w-8 text-purple-400 mx-auto mb-4" />
+									<div className="text-white font-semibold">Email</div>
+									<div className="text-white/70 text-sm">asryamaz000@gmail.com</div>
+								</CardContent>
+							</Card>
 						</motion.div>
 
 						<motion.div variants={fadeInUp}>
-							<a href="https://github.com/Asry18">
-								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-									<CardContent className="p-6 text-center">
-										<Github className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-										<div className="text-white font-semibold">GitHub</div>
-										<div className="text-white/70 text-sm">@Asry18</div>
-									</CardContent>
-								</Card>
-							</a>
+							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
+								<CardContent className="p-6 text-center">
+									<Github className="h-8 w-8 text-purple-400 mx-auto mb-4" />
+									<div className="text-white font-semibold">GitHub</div>
+									<div className="text-white/70 text-sm">@Asry18</div>
+								</CardContent>
+							</Card>
 						</motion.div>
 
 						<motion.div variants={fadeInUp}>
-							<a href="https://www.linkedin.com/in/mohamed-asry-402a4b241/">
-								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-									<CardContent className="p-6 text-center">
-										<Linkedin className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-										<div className="text-white font-semibold">LinkedIn</div>
-										<div className="text-white/70 text-sm">@Mohamed Asry</div>
-									</CardContent>
-								</Card>
-							</a>
+							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
+								<CardContent className="p-6 text-center">
+									<Linkedin className="h-8 w-8 text-purple-400 mx-auto mb-4" />
+									<div className="text-white font-semibold">LinkedIn</div>
+									<div className="text-white/70 text-sm">@Mohamed Asry</div>
+								</CardContent>
+							</Card>
 						</motion.div>
 					</motion.div>
 
-					{/* Start Conversation Button */}
 					<Button
 						size="lg"
 						onClick={handleButtonClick}
@@ -98,16 +123,13 @@ export default function ContactSection() {
 						Start a Conversation
 					</Button>
 
-					{/* Contact Form (revealed on button click) */}
 					{showForm && (
 						<motion.form
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
 							className="mt-8 max-w-xl mx-auto bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20"
-							action={`mailto:asryamaz000@gmail.com`}
-							method="POST"
-							encType="text/plain"
+							onSubmit={handleSubmit} // <-- fixed
 						>
 							<input
 								type="text"
@@ -133,8 +155,9 @@ export default function ContactSection() {
 							<Button
 								type="submit"
 								className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg"
+								disabled={loading}
 							>
-								Send Message
+								{loading ? "Sending..." : "Send Message"}
 							</Button>
 						</motion.form>
 					)}
