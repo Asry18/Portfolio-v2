@@ -90,47 +90,7 @@ export default function Portfolio() {
 	const y1 = useTransform(scrollY, [0, 300], [0, -50]);
 	const y2 = useTransform(scrollY, [0, 300], [0, -100]);
 
-	const projects = [
-		{
-			title: " Garage24",
-			description:
-				" The responsive garage management system that lets customers track vehicle status, view invoices, and make payments, while staff manage appointments, generate reports, and communicate with customers in real time.",
-			image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-			technologies: ["React", "Node.js", "Express.js", "MongoDB", "MUI"],
-			github: "#",
-			live: "#",
-			featured: true,
-		},
-		{
-			title: "UniConnect",
-			description:
-				"A centralized web platform to streamline communication between students, lecturers, and administrators. Include appointment scheduling with lecturers, ticket submission for administrative issues, and announcement publishing.",
-			image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg",
-			technologies: ["Next.js (Frontend & Backend)", "Tailwind CSS", "MUI", "MongoDB"],
-			github: "#",
-			live: "#",
-			featured: true,
-		},
-		{
-			title: "Spirit11 Fantasy Cricket League",
-			description: "A cricket league platform where users manage teams.",
-			image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
-			technologies: ["MongoDB", "Express.js", "React", "Node.js", "shadcn UI"],
-			github: "#",
-			live: "#",
-			featured: false,
-		},
-		{
-			title: "URL Shortener",
-			description:
-				"Created a URL shortener using Flask and MySQL with unique hashing and link usage tracking.",
-			image: "https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg",
-			technologies: ["Flask", "MySQL", "REST APIs"],
-			github: "#",
-			live: "#",
-			featured: false,
-		},
-	];
+	
 
 	const skills = [
 		{ name: "JavaScript", level: 95, category: "Frontend" },
