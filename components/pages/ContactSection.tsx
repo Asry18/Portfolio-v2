@@ -45,33 +45,39 @@ export default function ContactSection() {
 						className="grid md:grid-cols-3 gap-6 mb-12"
 					>
 						<motion.div variants={fadeInUp}>
-							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-								<CardContent className="p-6 text-center">
-									<Mail className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-									<div className="text-white font-semibold">Email</div>
-									<div className="text-white/70 text-sm">asryamaz000@gmail.com</div>
-								</CardContent>
-							</Card>
+							<a href="mailto:asryamaz000@gmail.com">
+								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
+									<CardContent className="p-6 text-center">
+										<Mail className="h-8 w-8 text-purple-400 mx-auto mb-4" />
+										<div className="text-white font-semibold">Email</div>
+										<div className="text-white/70 text-sm">asryamaz000@gmail.com</div>
+									</CardContent>
+								</Card>
+							</a>
 						</motion.div>
 
 						<motion.div variants={fadeInUp}>
-							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-								<CardContent className="p-6 text-center">
-									<Github className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-									<div className="text-white font-semibold">GitHub</div>
-									<div className="text-white/70 text-sm">@johndoe</div>
-								</CardContent>
-							</Card>
+							<a href="https://github.com/Asry18">
+								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
+									<CardContent className="p-6 text-center">
+										<Github className="h-8 w-8 text-purple-400 mx-auto mb-4" />
+										<div className="text-white font-semibold">GitHub</div>
+										<div className="text-white/70 text-sm">@Asry18</div>
+									</CardContent>
+								</Card>
+							</a>
 						</motion.div>
 
 						<motion.div variants={fadeInUp}>
-							<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
-								<CardContent className="p-6 text-center">
-									<Linkedin className="h-8 w-8 text-purple-400 mx-auto mb-4" />
-									<div className="text-white font-semibold">LinkedIn</div>
-									<div className="text-white/70 text-sm">@john-doe</div>
-								</CardContent>
-							</Card>
+							<a href="https://www.linkedin.com/in/mohamed-asry-402a4b241/">
+								<Card className="bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 transform hover:-translate-y-2">
+									<CardContent className="p-6 text-center">
+										<Linkedin className="h-8 w-8 text-purple-400 mx-auto mb-4" />
+										<div className="text-white font-semibold">LinkedIn</div>
+										<div className="text-white/70 text-sm">@Mohamed Asry</div>
+									</CardContent>
+								</Card>
+							</a>
 						</motion.div>
 					</motion.div>
 
