@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, User, MessageSquare, Send } from "lucide-react";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 60 },
@@ -128,37 +128,93 @@ export default function ContactSection() {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
-							className="mt-8 max-w-xl mx-auto bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20"
-							onSubmit={handleSubmit} // <-- fixed
+							className="mt-8 max-w-xl mx-auto bg-form-background backdrop-blur-xl p-8 rounded-3xl border border-form-border shadow-glass-strong"
+							onSubmit={handleSubmit}
 						>
-							<input
-								type="text"
-								name="name"
-								placeholder="Your Name"
-								className="w-full mb-4 px-4 py-3 rounded-lg text-black"
-								required
-							/>
-							<input
-								type="email"
-								name="email"
-								placeholder="Your Email"
-								className="w-full mb-4 px-4 py-3 rounded-lg text-black"
-								required
-							/>
-							<textarea
-								name="message"
-								placeholder="Your Message"
-								className="w-full mb-4 px-4 py-3 rounded-lg text-black"
-								rows={5}
-								required
-							/>
-							<Button
-								type="submit"
-								className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg"
-								disabled={loading}
-							>
-								{loading ? "Sending..." : "Send Message"}
-							</Button>
+							<div className="space-y-6">
+								{/* Name Field */}
+								<motion.div
+									initial={{ opacity: 0, x: -20 }}
+									animate={{ opacity: 1, x: 0 }}
+									transition={{ delay: 0.1, duration: 0.5 }}
+									className="relative group"
+								>
+									<div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-form-placeholder group-focus-within:text-white transition-colors duration-300">
+										<User className="w-5 h-5" />
+									</div>
+									<input
+										type="text"
+										name="name"
+										placeholder="Your Name"
+										className="w-full px-4 py-3 pl-12 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-form-placeholder focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+										required
+									/>
+								</motion.div>
+
+								{/* Email Field */}
+								<motion.div
+									initial={{ opacity: 0, x: -20 }}
+									animate={{ opacity: 1, x: 0 }}
+									transition={{ delay: 0.2, duration: 0.5 }}
+									className="relative group"
+								>
+									<div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-form-placeholder group-focus-within:text-white transition-colors duration-300">
+										<Mail className="w-5 h-5" />
+									</div>
+									<input
+										type="email"
+										name="email"
+										placeholder="Your Email"
+										className="w-full px-4 py-3 pl-12 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-form-placeholder focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+										required
+									/>
+								</motion.div>
+
+								{/* Message Field */}
+								<motion.div
+									initial={{ opacity: 0, x: -20 }}
+									animate={{ opacity: 1, x: 0 }}
+									transition={{ delay: 0.3, duration: 0.5 }}
+									className="relative group"
+								>
+									<div className="absolute left-4 top-6 text-form-placeholder group-focus-within:text-white transition-colors duration-300">
+										<MessageSquare className="w-5 h-5" />
+									</div>
+									<textarea
+										name="message"
+										placeholder="Your Message"
+										className="w-full px-4 py-3 pl-12 min-h-[120px] rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-form-placeholder focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+										rows={5}
+										required
+									/>
+								</motion.div>
+
+								{/* Submit Button */}
+								<motion.div
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ delay: 0.4, duration: 0.5 }}
+								>
+									<Button
+										type="submit"
+										className="w-full py-4 text-lg font-semibold relative overflow-hidden group"
+										disabled={loading}
+									>
+										<div className="flex items-center justify-center gap-3">
+											{loading ? (
+												<motion.div
+													animate={{ rotate: 360 }}
+													transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+													className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+												/>
+											) : (
+												<Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+											)}
+											<span>{loading ? "Sending..." : "Send Message"}</span>
+										</div>
+									</Button>
+								</motion.div>
+							</div>
 						</motion.form>
 					)}
 				</motion.div>
