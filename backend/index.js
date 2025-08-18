@@ -14,14 +14,14 @@ app.post("/send-email", async (req, res) => {
 		let transporter = nodemailer.createTransport({
 			service: "gmail",
 			auth: {
-				user: "your-email@gmail.com",
-				pass: "your-app-password",
+				user: "realmasu124@gmail.com",
+				pass: "jbgo cbxm mlfu dlri",
 			},
 		});
 
 		await transporter.sendMail({
 			from: email,
-			to: "your-email@gmail.com",
+			to: "realmasu124@gmail.com",
 			subject: `Message from ${name}`,
 			text: message,
 		});
