@@ -99,10 +99,10 @@ export default function HighlightsSection() {
 
 			<div className="container mx-auto max-w-6xl">
 				<motion.h2
-					initial={{ opacity: 0, y: 30 }}
+					initial={{ opacity: 0, y: 60 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 text-center mb-12 tracking-tight"
+					className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent text-center mb-20"
 				>
 					Highlights
 				</motion.h2>
