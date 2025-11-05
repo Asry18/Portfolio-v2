@@ -69,10 +69,34 @@ const highlights = [
 ];
 
 export default function HighlightsSection() {
-	const categories = ["Certifications", "Achievements & Leadership", "Awards"];
+	const categories = [
+		{ key: "Certificates", icon: "🎓" },
+		{ key: "Awards", icon: "🏆" },
+		{ key: "Achievements", icon: "⭐" },
+		{ key: "Leadership", icon: "👑" },
+	];
+
+	// pick top 3 items for each category from the highlights data
+	const itemsByCategory = (cat: string) =>
+		highlights.filter((h) => {
+			// normalize some category names
+			if (cat === "Certificates") return h.category.toLowerCase().includes("certif");
+			if (cat === "Leadership") return h.category.toLowerCase().includes("leadership");
+			if (cat === "Achievements") return h.category.toLowerCase().includes("achievement");
+			if (cat === "Awards") return h.category.toLowerCase().includes("award");
+			return h.category === cat;
+		})
+		.slice(0, 3);
 
 	return (
-		<section id="highlights" className="py-32 px-6 relative">
+		<section
+			id="highlights"
+			className="py-24 px-6 relative overflow-hidden"
+			aria-label="Highlights: Certificates, Awards, Achievements, Leadership"
+		>
+			{/* subtle background gradient overlay */}
+			<div className="absolute inset-0 -z-10 bg-gradient-to-br from-sky-50/60 to-white/0 pointer-events-none" />
+
 			<div className="container mx-auto max-w-6xl">
 				<motion.h2
 					initial={{ opacity: 0, y: 60 }}
@@ -83,44 +107,61 @@ export default function HighlightsSection() {
 					Highlights
 				</motion.h2>
 
-				<div className="grid md:grid-cols-3 gap-8">
-					{categories.map((category) => (
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+					{categories.map(({ key, icon }) => (
 						<motion.div
-							key={category}
-							initial={{ opacity: 0, y: 60 }}
+							key={key}
+							initial={{ opacity: 0, y: 40 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
-							className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-500"
+							transition={{ duration: 0.45 }}
+							className="relative bg-white/60 dark:bg-slate-900/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:scale-105 transform transition-all duration-300"
 						>
-							<h3 className="text-xl font-bold text-white mb-6 text-center">
-								{category}
-							</h3>
-							<div className="flex flex-wrap gap-3 justify-center">
-								{highlights
-									.filter((item) => item.category === category)
-									.map((item, index) => (
-										<span
-											key={index}
-											className="px-4 py-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium shadow-lg hover:scale-105 transition-transform duration-300 text-center max-w-xs"
-										>
+							<div className="flex items-center justify-between mb-4">
+								<h3 className="flex items-center gap-3 text-lg font-semibold text-slate-900 dark:text-white">
+									<span className="text-2xl" aria-hidden>
+										{icon}
+									</span>
+									<span>{key}</span>
+								</h3>
+								<span className="text-sm font-medium text-yellow-500">&nbsp;</span>
+							</div>
+
+							<div className="space-y-3">
+								{itemsByCategory(key).map((item, idx) => (
+									<div
+										key={idx}
+										className="flex items-start gap-3 bg-white dark:bg-slate-800/40 rounded-lg p-3 border-l-4 border-yellow-300/70 hover:shadow-lg transition-shadow duration-250"
+									>
+										<div className="flex-shrink-0 mt-1 text-xl">✔️</div>
+										<div className="text-sm text-slate-800 dark:text-slate-200">
 											{item.name}
-										</span>
-									))}
+										</div>
+									</div>
+								))}
+							</div>
+
+							<div className="mt-5 flex justify-end">
+								<a
+									href="#"
+									className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-sky-100 to-white text-slate-900 border border-slate-200 hover:from-sky-50 hover:to-white/80 shadow-sm hover:shadow-yellow-200/20 transition-all"
+								>
+									View More
+								</a>
 							</div>
 						</motion.div>
 					))}
 				</div>
 
-				{/* LinkedIn link */}
-				<p className="text-center mt-12 text-white/70">
-					All certifications are displayed on my{" "}
+				<p className="text-center mt-8 text-slate-600 text-sm">
+					Want to see everything? Check my LinkedIn for full certifications and awards.
 					<a
 						href="https://www.linkedin.com/in/mohamed-asry-402a4b241/details/certifications/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-400 hover:underline"
+						className="ml-2 font-medium text-sky-600 hover:underline"
 					>
-						LinkedIn profile (click here)
+						LinkedIn
 					</a>
 				</p>
 			</div>
