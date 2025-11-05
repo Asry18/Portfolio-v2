@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 // Your provided technical skills
 const skills = [
@@ -31,53 +32,79 @@ const skills = [
 ];
 
 export default function SkillsSection() {
-	const categories = [
-		"Programming",
-		"Front-end",
-		"Database",
-		"Version Control",
-		"Back-end",
-		"Other",
-	];
+	const categories = ["All", "Programming", "Front-end", "Database", "Version Control", "Back-end", "Other"];
+	const [selected, setSelected] = useState<string>("All");
+	const visibleSkills = selected === "All" ? skills : skills.filter((s) => s.category === selected);
+
+	// design tokens (kept inline for now)
+	const designVars: any = {
+		'--color-primary': '#2563EB',
+		'--color-accent': '#FACC15',
+		'--bg-offwhite': '#F9FAFB',
+		'--text-slate': '#1F2937',
+	};
 
 	return (
-		<section id="skills" className="py-32 px-6 relative">
+		<section id="skills" className="py-20 px-6 bg-[#F9FAFB]" style={designVars}>
 			<div className="container mx-auto max-w-6xl">
 				<motion.h2
 					initial={{ opacity: 0, y: 60 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent text-center mb-20"
+					className="text-5xl md:text-6xl font-bold text-[#2563EB] text-center mb-4"
 				>
 					Technical Skills
 				</motion.h2>
 
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{categories.map((category) => (
-						<motion.div
-							key={category}
-							initial={{ opacity: 0, y: 60 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-500"
-						>
-							<h3 className="text-xl font-bold text-white mb-6 text-center">
-								{category}
-							</h3>
-							<div className="flex flex-wrap gap-3 justify-center">
-								{skills
-									.filter((skill) => skill.category === category)
-									.map((skill, index) => (
-										<span
-											key={index}
-											className="px-4 py-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium shadow-lg hover:scale-105 transition-transform duration-300"
+				<motion.p
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					className="text-center text-slate-700 max-w-2xl mx-auto mb-8"
+				>
+					Core technologies, tools and frameworks I use regularly.
+				</motion.p>
+
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+					{/* Categories - sidebar on md+ screens, top tabs on small screens */}
+					<nav className="col-span-1 md:col-span-1">
+						<ul className="flex md:flex-col gap-2 overflow-auto">
+							{categories.map((cat) => {
+								const active = selected === cat;
+								return (
+									<li key={cat}>
+										<button
+											onClick={() => setSelected(cat)}
+											className={`inline-block px-4 py-2 rounded-md w-full text-sm font-medium transition-colors ${active ? 'bg-[#2563EB] text-white' : 'bg-white text-slate-800 border border-transparent hover:bg-white/60'}`}
+											aria-pressed={active}
 										>
-											{skill.name}
-										</span>
-									))}
-							</div>
+											{cat}
+										</button>
+									</li>
+								);
+							})}
+						</ul>
+					</nav>
+
+					{/* Skills grid */}
+					<div className="col-span-1 md:col-span-3">
+						<motion.div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+							{visibleSkills.map((s) => (
+								<motion.div
+									key={s.name}
+									initial={{ opacity: 0, y: 8 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									className="flex items-center gap-3 bg-white rounded-lg px-3 py-2 shadow-sm hover:shadow-md transition-shadow"
+								>
+									<div className="w-8 h-8 rounded-md flex items-center justify-center text-sm font-semibold text-white" style={{ background: 'var(--color-primary)' }} aria-hidden>
+										{s.name.charAt(0).toUpperCase()}
+									</div>
+									<div className="text-sm text-slate-800 font-medium">{s.name}</div>
+								</motion.div>
+							))}
 						</motion.div>
-					))}
+					</div>
 				</div>
 			</div>
 		</section>
