@@ -5,9 +5,11 @@ WORKDIR /app
 # Enable corepack and pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Install deps based on lockfile
+# Install deps based on lockfile (allow lockfile to be updated during image build)
+# If you want strict reproducible builds, run `pnpm install` locally and commit the updated pnpm-lock.yaml,
+# then change this back to `--frozen-lockfile`.
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 # Copy rest of the sources and build
 COPY . .
