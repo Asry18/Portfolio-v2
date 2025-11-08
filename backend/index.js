@@ -11,11 +11,18 @@ app.post("/send-email", async (req, res) => {
 	const { name, email, message } = req.body;
 
 	try {
+		// read credentials from environment variables for safety
+		const gmailUser = process.env.GMAIL_USER;
+		const gmailPass = process.env.GMAIL_PASS;
+		if (!gmailUser || !gmailPass) {
+			console.warn('GMAIL_USER or GMAIL_PASS not set in environment. Email may fail.');
+		}
+
 		let transporter = nodemailer.createTransport({
 			service: "gmail",
 			auth: {
-				user: "realmasu124@gmail.com",
-				pass: "jbgo cbxm mlfu dlri",
+				user: gmailUser || "",
+				pass: gmailPass || "",
 			},
 		});
 
